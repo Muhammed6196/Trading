@@ -72,7 +72,6 @@ local function SendMessage(username, diamonds)
             inline = false
         }
     }
-
     local combinedItems = {}
     local itemRapMap = {}
 
